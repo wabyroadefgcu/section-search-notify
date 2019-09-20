@@ -12,10 +12,13 @@ now = datetime.now() #get current time at beginning of script in order to send d
 if (now.strftime('%I:%M') == '11:45'):
     debug = 1
 
+post_url = 'https://gulfline.fgcu.edu/pls/fgpo/szkschd.p_showresult'
 payload2 = {'Termcode': '201808', 'Sess': '', 'Campcode': '', 'CollegeCode': '', 'Deptcode': '', 'Status': '',
             'Level': '', 'CRN': '80557', 'Subjcode': '', 'CourseNumber': '', 'CourseTitle': '', 'CreditHours': '',
             'courseattribute': '', 'BeginTime': '', 'Instructor': '', 'sortby': 'course', 'Button1': 'Search'}
-courseResult2 = requests.post('https://gulfline.fgcu.edu/pls/fgpo/szkschd.p_showresult', data=payload2)
+# TODO: Formulate a method to more flexibly locate and acquire the data
+
+courseResult2 = requests.post(post_url, data=payload2)
 courseMatrix = []
 
 soup2 = BeautifulSoup(courseResult2.text, 'html.parser')
