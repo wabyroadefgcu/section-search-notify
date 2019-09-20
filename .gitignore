@@ -1,0 +1,8 @@
+# ignore mail server config info
+secret_config.txt
+
+# ignore IDE config
+.idea/
+
+# ignore __pycache__
+emailer/__pycache__/
